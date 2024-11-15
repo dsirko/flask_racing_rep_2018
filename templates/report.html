@@ -6,10 +6,11 @@
 </head>
 <body>
 <h1>report</h1>
-<p>{{ report[0] }}</p>
-<p>{% for i in report %}</p>
-    {{ i }}
-    <p>{% endfor %}</p>
-{#<p>{{ report[1] }}</p>#}
+{% for entry in report %}
+    <p>{{ loop.index }}. {{ entry[1] }} | {{ entry[2] }} | {{ format_timedelta(entry[3]) }}</p>
+    {% if loop.index == BEST_RACERS %}
+        <p>---------------------------------------------------------</p>
+    {% endif %}
+{% endfor %}
 </body>
 </html>

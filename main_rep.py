@@ -17,7 +17,7 @@ def process_logs():
 
     # Build and print the report
     report = build_report(abbreviations, time_differences)
-    print_report(report)
-    return print_report_web(report)
+
+    return report
 
     # return report
