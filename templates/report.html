@@ -5,7 +5,7 @@
     <title>Title</title>
 </head>
 <body>
-<h1>report</h1>
+<h1>Racing report</h1>
 {% for entry in report %}
     <p>{{ loop.index }}. {{ entry[1] }} | {{ entry[2] }} | {{ format_timedelta(entry[3]) }}</p>
     {% if loop.index == BEST_RACERS %}
