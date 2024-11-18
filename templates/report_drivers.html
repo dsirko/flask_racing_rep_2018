@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Racing report drivers</h1>
+{% for entry in report %}
+    <p>{{ loop.index }}. <a href="{{ url_for('report_drivers', driver_id=entry[0]) }}">{{ entry[0] }}</a> | {{ entry[1] }} </p>
+{% endfor %}
+<a href = {{ url_for('report') }}> report </a>
+</body>
+</html>

@@ -1,5 +1,5 @@
 from utils import read_text_file, split_data, sort_data, calculate_time_differences, format_timedelta, build_report, \
-    print_report, print_report_web
+    print_report
 
 
 def process_logs():
