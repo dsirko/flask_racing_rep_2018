@@ -9,6 +9,7 @@
 {% for entry in report %}
     <p>{{ loop.index }}. <a href="{{ url_for('report_drivers', driver_id=entry[0]) }}">{{ entry[0] }}</a> | {{ entry[1] }} </p>
 {% endfor %}
-<a href = {{ url_for('report') }}> report </a>
+<br>
+<a href = {{ url_for('report') }}>Statistics</a>
 </body>
 </html>

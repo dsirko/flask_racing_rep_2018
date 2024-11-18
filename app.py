@@ -8,30 +8,31 @@ app = Flask(__name__)
 
 @app.route('/')
 def hello_world():  # put application's code here
-    return 'Hello World!'
-
-# def get_driver_info(driver_id):
-#     result = find_driver_info(driver_id)
-#     return render_template('driver_info.html', driver = result)
+    return 'Race report!'
 
 
-@app.route('/report')
+@app.route('/report/')
 def report():
+    """ Displays a report of race results. The report can be sorted """
+    order = request.args.get('order', default='asc')
     report = process_logs()
-    return render_template('report.html' , report=report, format_timedelta=format_timedelta, BEST_RACERS=BEST_RACERS)
+    desc_sorted = sorted(report, key=lambda x: x[3], reverse=(order == 'desc'))
+    return render_template('report.html' , report=desc_sorted, format_timedelta=format_timedelta, BEST_RACERS=BEST_RACERS)
 
 
 @app.route('/report/drivers/')
 def report_drivers():
+    """ Displays a report of race results for each driver. The report can be sorted """
     driver_id = request.args.get('driver_id')
+    order = request.args.get('order', default='asc')
     if driver_id:
         report = process_logs()
         driver = find_driver_info(report, driver_id)
         return render_template('driver_info.html', driver=driver)
     else:
         report = process_logs()
-        print("report_drivers")
-        return render_template('report_drivers.html' , report=report)
+        desc_sorted = sorted(report, key=lambda x: x[1], reverse=(order == 'desc'))
+        return render_template('report_drivers.html' , report=desc_sorted)
 
 
 

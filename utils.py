@@ -61,6 +61,7 @@ def print_report(report):
 
 
 def find_driver_info(report, driver_id):
+    """ Finds the driver information in the report given the driver's ID. """
     for entry in report:
         if driver_id == entry[0]:
             formatted_time = format_timedelta(entry[3])
