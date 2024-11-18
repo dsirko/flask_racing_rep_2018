@@ -35,6 +35,5 @@ def report_drivers():
         return render_template('report_drivers.html' , report=desc_sorted)
 
 
-
 if __name__ == '__main__':
     app.run(debug=True)
