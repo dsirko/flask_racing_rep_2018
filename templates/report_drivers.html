@@ -1,15 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<h1>Racing report drivers</h1>
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2>Racing report drivers</h2>
 {% for entry in report %}
     <p>{{ loop.index }}. <a href="{{ url_for('report_drivers', driver_id=entry[0]) }}">{{ entry[0] }}</a> | {{ entry[1] }} </p>
 {% endfor %}
 <br>
-<a href = {{ url_for('report') }}>Statistics</a>
-</body>
-</html>
+
+{% endblock %}

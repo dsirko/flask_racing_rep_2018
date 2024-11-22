@@ -1,13 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<h1>Driver info</h1>
+{% extends "base.html" %}
+
+{% block content %}
+
+<a href="{{ url_for('report_drivers') }}">Back to Drivers report</a>
+<br><br>
+
+<h2>Driver info</h2>
 <p>Driver's name: <b>{{ driver[0][1] }}</b></p>
 <p>Driver's car: <b>{{ driver[0][2] }}</b></p>
 <p>Time: <b>{{ driver[1] }}</b></p>
-</body>
-</html>
+
+{% endblock %}

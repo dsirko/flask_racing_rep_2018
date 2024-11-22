@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Racing report</title>
+</head>
+<body>
+    <div>
+        <h1>Racing report 2018</h1>
+    </div>
+    <div>
+    {% block content %}{% endblock %}
+    </div>
+</body>
+<footer>
+    {% set page = request.path %}
+    {% if page == '/report/' %}
+        <a href = {{ url_for('report_drivers') }}>Drivers report</a>
+    {% elif page == '/report/drivers/' %}
+        <a href = {{ url_for('report') }}>Statistics</a>
+    {% else %}
+        <a href = {{ url_for('report_drivers') }}>Drivers report</a>
+        <a href = {{ url_for('report') }}>Statistics</a>
+{% endif %}
+</footer>
+</html>

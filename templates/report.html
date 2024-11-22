@@ -1,18 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<h1>Racing report</h1>
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2>Statistics</h2>
 {% for entry in report %}
     <p>{{ loop.index }}. {{ entry[0] }} | {{ entry[2] }} | {{ format_timedelta(entry[3]) }}</p>
     {% if loop.index == BEST_RACERS %}
         <p>---------------------------------------------------------</p>
     {% endif %}
 {% endfor %}
-<a href = {{ url_for('report_drivers') }}>Drivers report </a>
+
 <br>
-</body>
-</html>
+
+{% endblock %}

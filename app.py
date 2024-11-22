@@ -8,7 +8,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def hello_world():  # put application's code here
-    return 'Race report!'
+    return '<h1>Race report!</h1>'
 
 
 @app.route('/report/')
